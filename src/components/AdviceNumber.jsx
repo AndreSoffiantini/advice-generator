@@ -3,7 +3,7 @@ import React from "react";
 function AdviceNumber(props) {
   return (
     <>
-      <div>Advice #{props.number}</div>
+      <div className="advice-number">Advice #{props.number}</div>
     </>
   );
 }

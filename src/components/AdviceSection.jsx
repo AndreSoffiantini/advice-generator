@@ -28,7 +28,7 @@ function AdviceSection() {
       <AdviceNumber number={adviceObject.id} />
       <AdviceText text={adviceObject.advice} />
       <Divider />
-      <AdviceGenerator />
+      <AdviceGenerator setAdviceObject={setAdviceObject} />
     </div>
   );
 }
