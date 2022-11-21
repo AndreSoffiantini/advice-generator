@@ -38,7 +38,8 @@ body {
   text-transform: uppercase;
   color: hsl(150, 100%, 66%);
   margin-bottom: 1.5rem;
-  letter-spacing: 0.075em;
+  letter-spacing: 0.25em;
+  font-size: 14px;
 }
 
 .advice-text {

@@ -12,13 +12,16 @@ function AdviceSection() {
   });
 
   useEffect(() => {
+    setLoading(true);
+  }, []);
+
+  useEffect(() => {
     const fetchAdvice = async () => {
-      if (!loading) {
-        setLoading(true);
+      if (loading) {
+        const response = await fetch("https://api.adviceslip.com/advice");
+        const json = await response.json();
+        setAdviceObject(json.slip);
       }
-      const response = await fetch("https://api.adviceslip.com/advice");
-      const json = await response.json();
-      setAdviceObject(json.slip);
     };
 
     fetchAdvice().then((data) => {
