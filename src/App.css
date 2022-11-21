@@ -21,8 +21,8 @@ body {
 .advice-section {
   background-color: hsl(217, 19%, 24%);
   border-radius: 0.5rem;
-  width: 300px;
-  padding: 1.5rem 1rem 0 1rem;
+  width: 90vw;
+  padding: 3rem 1rem 0 1rem;
 }
 
 .divider {
@@ -30,12 +30,15 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   height: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .advice-number {
   text-align: center;
   text-transform: uppercase;
   color: hsl(150, 100%, 66%);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.075em;
 }
 
 .advice-text {
@@ -43,24 +46,17 @@ body {
   font-size: 28px;
   line-height: 33px;
   text-align: center;
-  letter-spacing: -0.075em;
   color: hsl(193, 38%, 86%);
-  margin: 1.5rem 0;
 }
 
-/* .loading {
+.spinner {
   width: 2rem;
   height: 2rem;
   border: 5px solid black;
   border-top: 6px solid black;
   border-radius: 100%;
   margin: auto;
-  visibility: hidden;
   animation: spin 1s infinite linear;
-}
-
-.loading.display {
-  visibility: visible;
 }
 
 @keyframes spin {
@@ -70,7 +66,7 @@ body {
   to {
     transform: rotate(360deg);
   }
-} */
+}
 
 .dice-button-container {
   display: flex;
@@ -89,5 +85,8 @@ body {
 @media screen and (min-width: 426px) {
   .divider {
     background-image: url("./assets/images/pattern-divider-desktop.svg");
+  }
+  .advice-section {
+    width: 382.5px;
   }
 }

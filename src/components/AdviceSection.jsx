@@ -4,31 +4,39 @@ import AdviceGenerator from "./AdviceGenerator";
 import AdviceNumber from "./AdviceNumber";
 import Divider from "./Divider";
 
-/* import dividerDesktop from "../assets/images/pattern-divider-desktop.svg";
-import dividerMobile from "../assets/images/pattern-divider-mobile.svg"; */
-
 function AdviceSection() {
+  const [loading, setLoading] = useState(false);
   const [adviceObject, setAdviceObject] = useState({
     id: null,
     advice: null,
   });
 
   useEffect(() => {
-    const fetchAdviceMount = async () => {
+    const fetchAdvice = async () => {
+      if (!loading) {
+        setLoading(true);
+      }
       const response = await fetch("https://api.adviceslip.com/advice");
       const json = await response.json();
       setAdviceObject(json.slip);
     };
 
-    fetchAdviceMount();
-  }, []);
+    fetchAdvice().then((data) => {
+      console.log(data);
+      setLoading(false);
+    });
+  }, [loading]);
 
   return (
     <div className="advice-section">
-      <AdviceNumber number={adviceObject.id} />
-      <AdviceText text={adviceObject.advice} />
+      <AdviceNumber number={adviceObject.id} loading={loading} />
+      <AdviceText text={adviceObject.advice} loading={loading} />
       <Divider />
-      <AdviceGenerator setAdviceObject={setAdviceObject} />
+      <AdviceGenerator
+        setAdviceObject={setAdviceObject}
+        loading={loading}
+        setLoading={setLoading}
+      />
     </div>
   );
 }

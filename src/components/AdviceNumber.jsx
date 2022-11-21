@@ -3,7 +3,9 @@ import React from "react";
 function AdviceNumber(props) {
   return (
     <>
-      <div className="advice-number">Advice #{props.number}</div>
+      <div className="advice-number">
+        {props.loading ? "" : "Advice #" + props.number}
+      </div>
     </>
   );
 }
