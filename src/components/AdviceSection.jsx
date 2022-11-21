@@ -10,24 +10,32 @@ function AdviceSection() {
     id: null,
     advice: null,
   });
+  const [intervalId, setIntervalId] = useState(0);
 
   useEffect(() => {
     setLoading(true);
   }, []);
 
   useEffect(() => {
+    const newInterval = setInterval(() => {
+      setLoading(true);
+    }, 60000);
+    setIntervalId(newInterval);
+  }, []);
+
+  useEffect(() => {
     const fetchAdvice = async () => {
       if (loading) {
-        const response = await fetch("https://api.adviceslip.com/advice");
+        const response = await fetch("https://api.adviceslip.com/advice", {
+          cache: "no-cache",
+        });
         const json = await response.json();
         setAdviceObject(json.slip);
+        setLoading(false);
       }
     };
 
-    fetchAdvice().then((data) => {
-      console.log(data);
-      setLoading(false);
-    });
+    fetchAdvice();
   }, [loading]);
 
   return (
@@ -39,6 +47,8 @@ function AdviceSection() {
         setAdviceObject={setAdviceObject}
         loading={loading}
         setLoading={setLoading}
+        intervalId={intervalId}
+        setIntervalId={setIntervalId}
       />
     </div>
   );

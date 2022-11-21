@@ -83,6 +83,10 @@ body {
   cursor: pointer;
 }
 
+.dice-button:hover {
+  box-shadow: 0px 0px 25px hsl(150, 100%, 66%);
+}
+
 @media screen and (min-width: 426px) {
   .divider {
     background-image: url("./assets/images/pattern-divider-desktop.svg");

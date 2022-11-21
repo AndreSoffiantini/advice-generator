@@ -4,6 +4,9 @@ import dice from "../assets/images/icon-dice.svg";
 function AdviceGenerator(props) {
   const handleClick = () => {
     props.setLoading(true);
+    clearInterval(props.intervalId);
+    const newInterval = setInterval(props.setLoading(true), 60000);
+    props.setIntervalId(newInterval);
   };
 
   return (
