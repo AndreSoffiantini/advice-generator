@@ -4,9 +4,9 @@ function AdviceText(props) {
   return (
     <>
       {props.loading ? (
-        <div className="spinner"></div>
+        <div></div>
       ) : (
-        <h1 className="advice-text">"{props.text}"</h1>
+        <span className="advice-text">{props.loading ? "" : props.text}</span>
       )}
     </>
   );

@@ -5,16 +5,12 @@ import AdviceNumber from "./AdviceNumber";
 import Divider from "./Divider";
 
 function AdviceSection() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [adviceObject, setAdviceObject] = useState({
     id: null,
     advice: null,
   });
   const [intervalId, setIntervalId] = useState(0);
-
-  useEffect(() => {
-    setLoading(true);
-  }, []);
 
   useEffect(() => {
     const newInterval = setInterval(() => {
@@ -42,7 +38,7 @@ function AdviceSection() {
     <div className="advice-section">
       <AdviceNumber number={adviceObject.id} loading={loading} />
       <AdviceText text={adviceObject.advice} loading={loading} />
-      <Divider />
+      <Divider loading={loading} />
       <AdviceGenerator
         setAdviceObject={setAdviceObject}
         loading={loading}

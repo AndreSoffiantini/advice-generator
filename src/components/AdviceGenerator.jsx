@@ -11,9 +11,17 @@ function AdviceGenerator(props) {
 
   return (
     <div className="dice-button-container">
-      <span className="dice-button" onClick={handleClick}>
-        <img src={dice} alt="dice" />
-      </span>
+      <button
+        className="dice-button"
+        onClick={handleClick}
+        disabled={props.loading}
+      >
+        {props.loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <img src={dice} alt="dice" />
+        )}
+      </button>
     </div>
   );
 }

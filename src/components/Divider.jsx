@@ -3,12 +3,8 @@ import dividerMobile from "../assets/images/pattern-divider-mobile.svg"; */
 
 import React from "react";
 
-function Divider() {
-  return (
-    <>
-      <div className="divider"></div>
-    </>
-  );
+function Divider(props) {
+  return <>{props.loading ? <div></div> : <div className="divider"></div>}</>;
 }
 
 export default Divider;
